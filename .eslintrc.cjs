@@ -15,7 +15,7 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true },
+      { allowConstantExport: true, 'no-unused-vars': 'off' },
     ],
   },
 }
