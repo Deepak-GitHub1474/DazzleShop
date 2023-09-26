@@ -85,3 +85,17 @@
         "source.fixAll.eslint": true 
         }
     ```
+
+### Install daisyUI as a Tailwind CSS plugin
+
+1. Install daisyUI
+    ```
+        npm i -D daisyui@latest
+    ```
+ 2. Then add daisyUI to your tailwind.config.js file
+    ```
+        module.exports = {
+                //...
+                plugins: [require("daisyui")],
+            }
+    ```
