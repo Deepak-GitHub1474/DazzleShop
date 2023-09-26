@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-     <img src="DS.png" alt="" />
+     <img src="DS.png" alt="" className='w-36'/>
     </>
   )
 }
