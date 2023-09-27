@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import carouselImg1 from "../assets/Images/carouselImg1.webp";
 import carouselImg2 from "../assets/Images/carouselImg2.jpg";
 import carouselImg3 from "../assets/Images/carouselImg3.png";
 import carouselImg4 from "../assets/Images/carouselImg4.jpg";
-import homePageMainImage from "../assets/Images/home-main.gif";
 import homeLeaf from "../assets/Images/home-leaf.png";
+import homePageMainImage from "../assets/Images/home-main.gif";
 import HomeLayout from "../layouts/PageLayout";
+
 function Home() {
   const [products, setProducts] = useState([]);
 
@@ -26,14 +27,14 @@ function Home() {
 
   return (
     <HomeLayout>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full bg-[#f1f3f6] mt-6">
             <div className="carousel w-1/2 mx-auto">
                 <div id="slide1" className="carousel-item relative w-full">
                     <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
                         <img src={carouselImg1} className="w-[600px] h-[300px]" />
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide4" className="btn btn-circle">❮</a>
-                            <a href="#slide2" className="btn btn-circle">❯</a>
+                            <a href="#slide4" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
+                            <a href="#slide2" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a>
                         </div>
                     </div>
                 </div>
@@ -41,8 +42,8 @@ function Home() {
                     <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
                         <img src={carouselImg2} className="w-[600px] h-[300px]" />
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide1" className="btn btn-circle">❮</a>
-                            <a href="#slide3" className="btn btn-circle">❯</a>
+                            <a href="#slide1" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
+                            <a href="#slide3" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a>
                         </div>
                     </div>
                 </div>
@@ -50,8 +51,8 @@ function Home() {
                     <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
                         <img src={carouselImg3} className="w-[600px] h-[300px]" />
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide2" className="btn btn-circle">❮</a>
-                            <a href="#slide4" className="btn btn-circle">❯</a>
+                            <a href="#slide2" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
+                            <a href="#slide4" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a>
                         </div>
                     </div>
                 </div>
@@ -59,8 +60,8 @@ function Home() {
                     <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
                         <img src={carouselImg4} className="w-[600px] h-[300px]" />
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                            <a href="#slide3" className="btn btn-circle">❮</a>
-                            <a href="#slide1" className="btn btn-circle">❯</a>
+                            <a href="#slide3" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
+                            <a href="#slide1" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a>
                         </div>
                     </div>
                 </div>
@@ -85,15 +86,15 @@ function Home() {
         </div>
       <div className="flex flex-wrap items-center justify-center gap-8 bg-[#f1f3f6] py-6 my-6 ">
         {products.map((product) => (
-          <div className="w-[250px] h-[350px] m-2 p-2 text-center rounded-lg bg-white shadow-2xl" key={product.id}>
+          <div className="w-[250px] h-[350px] m-2 p-2 text-center rounded-lg bg-[#ffffff] shadow-2xl" key={product.id}>
             <div className="flex items-center justify-center h-[180px]">
                 <img src={product.image} alt={product.title} className="w-[180px] h-[180px] object-contain cursor-pointer" />
             </div>
-            <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis pt-5">{product.title}</h3>
-            <p className="text-[#008000]">Price ${product.price}</p>
+            <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis pt-5 text-[#000] font-semibold">{product.title}</h3>
+            <p className="text-[#008000] font-semibold">Price ${product.price}</p>
             <div className="flex items-center justify-around">
-                <button className="mt-8 bg-black text-white border-none py-1 w-24 cursor-pointer rounded-lg">Add to Cart</button>
-                <button className="mt-8 bg-black text-white border-none py-1 w-24 cursor-pointer rounded-lg">Buy Now</button>
+                <button className="mt-8 bg-[#000] text-[#ffffff] font-semibold border-none py-1 w-24 cursor-pointer rounded-lg">Add to Cart</button>
+                <button className="mt-8 bg-[#000] text-[#ffffff] font-semibold border-none py-1 w-24 cursor-pointer rounded-lg">Buy Now</button>
             </div>
       </div>
         
