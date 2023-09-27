@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from 'axios';
 
 import carouselImg1 from "../assets/Images/carouselImg1.webp";
 import carouselImg2 from "../assets/Images/carouselImg2.jpg";
@@ -9,21 +11,23 @@ import homePageMainImage from "../assets/Images/home-main.gif";
 import HomeLayout from "../layouts/PageLayout";
 
 function Home() {
+    
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const PRODUCT_URL = 'https://fakestoreapi.com/products'
 
-  async function getProducts() {
-    try {
-      const response = await fetch("https://fakestoreapi.com/products");
-      const products = await response.json();
-      setProducts(products);
-    } catch (error) {
-      console.log("Error:", error);
-    }
-  }
+  useEffect(() => {
+    async function getProducts() {
+        try {
+          const response = await axios.get(PRODUCT_URL);
+          const products = response.data;
+          setProducts(products);
+        } catch (error) {
+          console.log('Error:', error);
+        }
+      }
+      getProducts()
+  }, []);
 
   return (
     <HomeLayout>
@@ -99,7 +103,9 @@ function Home() {
             <div className="flex items-center justify-around">
                 <button className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Add to Cart</button>
 
-                <button className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Buy Now</button>
+               <Link to={`/product/${product.id}`}>
+                    <button className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Buy Now</button>
+               </Link>
             </div>
       </div>
         

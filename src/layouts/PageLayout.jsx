@@ -28,7 +28,7 @@ function PageLayout({ children }) {
             <FiMenu
               onClick={changeWidth}
               size={"32px"}
-              className="font-bold m-4 cursor-pointer"
+              className="font-bold m-6 cursor-pointer text-[#8bc34a]"
             />
           </label>
         </div>
@@ -37,7 +37,7 @@ function PageLayout({ children }) {
           <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-[#ffffff] text-base-content relative">
             <li className="w-fit absolute right-2 z-50">
               <button onClick={hideDrawer}>
-                <AiFillCloseCircle size={"24px"} />
+                <AiFillCloseCircle size={"24px"} className="text-[#8bc34a]"/>
               </button>
             </li>
             <li>
