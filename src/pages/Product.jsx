@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsFillHeartFill } from 'react-icons/bs';
 import { useParams } from "react-router-dom";
 
-import HomeLayout from "../layouts/PageLayout";
-
 import ratingStar from "../assets/Images/star.svg"
-import { BsFillHeartFill } from 'react-icons/bs';
-import { AiOutlineHeart } from "react-icons/ai";
+import HomeLayout from "../layouts/PageLayout";
 
 function Product() {
 
@@ -24,7 +23,7 @@ function Product() {
       } catch (error) {
         console.error("Error while fetching product details: ", error);
       }
-    };
+    }
   
     fetchProductDetails();
   }, []);

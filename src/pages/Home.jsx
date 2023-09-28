@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
 
 import carouselImg1 from "../assets/Images/carouselImg1.webp";
 import carouselImg2 from "../assets/Images/carouselImg2.jpg";
@@ -8,26 +6,14 @@ import carouselImg3 from "../assets/Images/carouselImg3.png";
 import carouselImg4 from "../assets/Images/carouselImg4.jpg";
 import homeLeaf from "../assets/Images/home-leaf.png";
 import homePageMainImage from "../assets/Images/home-main.gif";
+
 import HomeLayout from "../layouts/PageLayout";
+
+import { useCart } from '../context/CartContext';
 
 function Home() {
     
-  const [products, setProducts] = useState([]);
-
-  const PRODUCT_URL = 'https://fakestoreapi.com/products'
-
-  useEffect(() => {
-    async function getProducts() {
-        try {
-          const response = await axios.get(PRODUCT_URL);
-          const products = response.data;
-          setProducts(products);
-        } catch (error) {
-          console.log('Error:', error);
-        }
-      }
-      getProducts()
-  }, []);
+    const { products, addToCart } = useCart();
 
   return (
     <HomeLayout>
@@ -73,7 +59,6 @@ function Home() {
             </div>
         </div>
 
-        
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 bg-[#ffffff] py-10 mt-6">
             <div className=" flex items-center justify-center">
                 <img src={homePageMainImage} alt="home page" className="w-[90%] lg:w-[70%] md:w-[55%] sm:w-[70%] rounded-[100px]" />
@@ -92,25 +77,27 @@ function Home() {
             </div>
         </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-8 py-6 my-6 ">
-        {products.map((product) => (
-          <div className="sm:w-[250px] w-[200px] h-[330px] m-2 p-2 text-center rounded-lg bg-[#ffffff] shadow-2xl hover:scale-[1.02] hover:border-2 hover:border-[#8bc34a]" key={product.id}>
-            <div className="flex items-center justify-center h-[180px]">
-                <img src={product.image} alt={product.title} className="w-[180px] h-[180px] object-contain cursor-pointer" />
-            </div>
-            <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis pt-5 text-[#000] font-semibold">{product.title}</h3>
-            <p className="text-[#008000] font-semibold">Price ${product.price}</p>
-            <div className="flex items-center justify-around">
-                <button className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Add to Cart</button>
+        <div className="flex flex-wrap items-center justify-center gap-8 py-6 my-6 ">
+          {products.map((product) => (
+            <div className="sm:w-[250px] w-[200px] h-[330px] m-2 p-2 text-center rounded-lg bg-[#ffffff] shadow-2xl hover:scale-[1.02] hover:border-2 hover:border-[#8bc34a]" key={product.id}>
+                <Link to={`/product/${product.id}`}>
+                    <div className="flex items-center justify-center h-[180px]">
+                        <img src={product.image} alt={product.title} className="w-[180px] h-[180px] object-contain cursor-pointer" />
+                    </div>
+                </Link>
+                <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis pt-5 text-[#000] font-semibold">{product.title}</h3>
+                <p className="text-[#008000] font-semibold">Price ${product.price}</p>
+                <div className="flex items-center justify-around">
+                    <button onClick={() => addToCart(product.id - 1)} className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Add to Cart</button>
 
-               <Link to={`/product/${product.id}`}>
-                    <button className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Buy Now</button>
-               </Link>
+                    <Link to={`/product/${product.id}`}>
+                        <button className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Buy Now</button>
+                    </Link>
+                </div>
             </div>
-      </div>
         
-        ))}
-      </div>
+            ))}
+        </div>
     </HomeLayout>
   );
 }

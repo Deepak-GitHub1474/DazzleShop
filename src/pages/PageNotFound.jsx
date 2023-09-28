@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 import pageNotFound from "../assets/Images/pageNotFound.jpg"
 
 function PageNotFound() {
@@ -6,7 +7,7 @@ function PageNotFound() {
     const navigate = useNavigate();
     function goback() {
         navigate(-1)
-    };
+    }
 
     return (
         <div className="flex items-center justify-center h-screen w-full bg-[#ffffff]">

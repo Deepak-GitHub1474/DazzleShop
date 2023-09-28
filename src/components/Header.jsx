@@ -1,12 +1,14 @@
 import { BsCart, BsSearch } from "react-icons/bs";
-
+import { Link } from "react-router-dom";
+import { useCart } from '../context/CartContext';
 import userProfile from "../assets/Images/user-profile.png";
 
-import { Link } from "react-router-dom";
+function Header() {
 
-function Navbar() {
+  const { cart, addToCart } = useCart();
+
   return (
-    <header className="lg:h-[14vh] h-[20vh] p-4 bg-[#ffffff]" style={{ boxShadow: "0 0 2px #808080" }}>
+    <header className="lg:h-[90px] h-[140px] p-4 bg-[#ffffff]" style={{ boxShadow: "0 0 2px #808080" }}>
 
       <div className="flex items-center justify-between">
 
@@ -33,7 +35,7 @@ function Navbar() {
               <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
                   <BsCart className="h-5 w-5"/>
-                  <span className="badge badge-sm indicator-item bg-[#8bc34a]">8</span>
+                  <span className="badge badge-sm indicator-item bg-[#8bc34a]">{cart.length}</span>
                 </div>
               </label>
             </div>
@@ -58,4 +60,4 @@ function Navbar() {
     </header>
   );
 }
-export default Navbar;
+export default Header;
