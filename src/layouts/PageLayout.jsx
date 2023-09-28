@@ -34,21 +34,15 @@ function PageLayout({ children }) {
         </div>
         <div className="drawer-side w-0">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-[#ffffff] text-base-content relative">
+          <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-[#ffffff] border-[0.5px] border-[#e4e3e3] text-base-content relative">
             <li className="w-fit absolute right-2 z-50">
               <button onClick={hideDrawer}>
                 <AiFillCloseCircle size={"24px"} className="text-[#8bc34a]"/>
               </button>
             </li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/">Category</Link>
-            </li>
-            <li>
-              <Link to="/">Filter</Link>
-            </li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Category</Link></li>
+            <li><Link to="/">Filter</Link></li>
           </ul>
         </div>
       </div>

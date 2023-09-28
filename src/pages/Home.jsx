@@ -31,12 +31,12 @@ function Home() {
 
   return (
     <HomeLayout>
-        <div className="flex flex-col w-full bg-[#f1f3f6] mt-6">
+        <div className="flex flex-col w-full bg-[#ffffff] mt-6">
             <div className="carousel w-full lg:w-1/2 mx-auto">
                 <div id="slide1" className="carousel-item relative w-full">
                     <div className="flex flex-col items-center justify-center gap-4 px-4 lg:px-[15%]">
                         <img src={carouselImg1} className="w-full lg:w-[600px] h-[300px]" alt="Slide 1" />
-                        <div className="absolute flex justify-between transform -translate-y-1/2 left-0 right-0 mx-auto top-1/2">
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-3 right-3 mx-auto top-1/2">
                             {/* Todo fix next btn */}
                             <a href="#slide4" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
                             <a href="#slide2" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a> 
@@ -46,7 +46,7 @@ function Home() {
                 <div id="slide2" className="carousel-item relative w-full">
                     <div className="flex flex-col items-center justify-center gap-4 px-4 lg:px-[15%]">
                         <img src={carouselImg2} className="w-full lg:w-[600px] h-[300px]" alt="Slide 2" />
-                        <div className="absolute flex justify-between transform -translate-y-1/2 left-0 right-0 mx-auto top-1/2">
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-3 right-3 mx-auto top-1/2">
                             <a href="#slide1" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
                             <a href="#slide3" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a>
                         </div>
@@ -55,7 +55,7 @@ function Home() {
                 <div id="slide3" className="carousel-item relative w-full">
                     <div className="flex flex-col items-center justify-center gap-4 px-4 lg:px-[15%]">
                         <img src={carouselImg3} className="w-full lg:w-[600px] h-[300px]" alt="Slide 3" />
-                        <div className="absolute flex justify-between transform -translate-y-1/2 left-0 right-0 mx-auto top-1/2">
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-3 right-3 mx-auto top-1/2">
                             <a href="#slide2" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
                             <a href="#slide4" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a>
                         </div>
@@ -64,7 +64,7 @@ function Home() {
                 <div id="slide4" className="carousel-item relative w-full">
                     <div className="flex flex-col items-center justify-center gap-4 px-4 lg:px-[15%]">
                         <img src={carouselImg4} className="w-full lg:w-[600px] h-[300px]" alt="Slide 4" />
-                        <div className="absolute flex justify-between transform -translate-y-1/2 left-0 right-0 mx-auto top-1/2">
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-3 right-3 mx-auto top-1/2">
                             <a href="#slide3" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❮</a>
                             <a href="#slide1" className="btn btn-circle bg-[#8bc34a] shadow-lg shadow-gray-600/50">❯</a>
                         </div>
@@ -74,7 +74,7 @@ function Home() {
         </div>
 
         
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 bg-[#f1f3f6] py-10 mt-6">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 bg-[#ffffff] py-10 mt-6">
             <div className=" flex items-center justify-center">
                 <img src={homePageMainImage} alt="home page" className="w-[90%] lg:w-[70%] md:w-[55%] sm:w-[70%] rounded-[100px]" />
             </div>
@@ -92,7 +92,7 @@ function Home() {
             </div>
         </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-8 bg-[#f1f3f6] py-6 my-6 ">
+      <div className="flex flex-wrap items-center justify-center gap-8 py-6 my-6 ">
         {products.map((product) => (
           <div className="sm:w-[250px] w-[200px] h-[330px] m-2 p-2 text-center rounded-lg bg-[#ffffff] shadow-2xl hover:scale-[1.02] hover:border-2 hover:border-[#8bc34a]" key={product.id}>
             <div className="flex items-center justify-center h-[180px]">

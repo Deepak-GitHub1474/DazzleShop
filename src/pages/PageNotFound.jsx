@@ -9,7 +9,7 @@ function PageNotFound() {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen w-full">
+        <div className="flex items-center justify-center h-screen w-full bg-[#ffffff]">
             <div>
                 <img src={pageNotFound} alt="404-img" />
             </div>

@@ -36,7 +36,7 @@ function Product() {
   return (
     <HomeLayout>
         <div className="flex items-center justify-around flex-wrap gap-8 my-10 mx-8 min-h-[65vh]">
-            <div className="border-[0.5px] border-[#e4e3e3] rounded p-2">
+            <div className="border-[0.5px] border-[#e4e3e3] rounded-lg  p-2 bg-[#ffffff]">
             {wishList ? 
             <div onClick={wishListHandle} className="w-10 h-10 rounded-full border-[0.5px] border-[#e4e3e3] shadow flex items-center justify-center">
                 <BsFillHeartFill size={"24px"} className=" absolute cursor-pointer text-[#ff0000]"/>
@@ -52,7 +52,7 @@ function Product() {
             />
             </div>
 
-            <div className="flex flex-col justify-center gap-3">
+            <div className="flex flex-col justify-center gap-3 ">
                 <h3 className="xl:text-3xl sm:text-2xl text-xl font-semibold sm:max-w-[350px] max-w-[265px]">{productDetails.title}</h3>
                 <div className="flex items-center gap-3">
                     <div className="w-[45px] h-[24px] bg-[#388e3c] text-[#ffffff] rounded-sm flex items-center justify-center gap-1 p-1">

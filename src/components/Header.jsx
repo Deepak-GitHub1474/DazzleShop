@@ -2,9 +2,11 @@ import { BsCart, BsSearch } from "react-icons/bs";
 
 import userProfile from "../assets/Images/user-profile.png";
 
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
-    <header className="lg:h-[14vh] h-[20vh] p-4" style={{ boxShadow: "0 0 2px #808080" }}>
+    <header className="lg:h-[14vh] h-[20vh] p-4 bg-[#ffffff]" style={{ boxShadow: "0 0 2px #808080" }}>
 
       <div className="flex items-center justify-between">
 
@@ -26,14 +28,16 @@ function Navbar() {
         
         <section className="flex items-center justify-between gap-5">
           
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <div className="indicator">
-                <BsCart className="h-5 w-5"/>
-                <span className="badge badge-sm indicator-item bg-[#8bc34a]">8</span>
-              </div>
-            </label>
-          </div>
+          <Link to="cart">
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle">
+                <div className="indicator">
+                  <BsCart className="h-5 w-5"/>
+                  <span className="badge badge-sm indicator-item bg-[#8bc34a]">8</span>
+                </div>
+              </label>
+            </div>
+          </Link>
 
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar hover:border-2 hover:border-[#8bc34a]">
@@ -41,9 +45,9 @@ function Navbar() {
                 <img src={userProfile} />
               </div>
             </label>
-            <ul tabIndex={0} className="mt-1 z-[1] p-2 menu menu-sm dropdown-content w-52 bg-base-100 shadow rounded-box">
-              <li><a className="justify-between">Profile</a></li>
-              <li><a>Logout</a></li>
+            <ul tabIndex={0} className="mt-1 z-[1] p-2 menu menu-sm dropdown-content w-48 bg-[#f1f3f6] shadow rounded-box">
+              <li><a className="justify-between font-semibold">Profile</a></li>
+              <li><a className="font-semibold">Logout</a></li>
             </ul>
           </div>
 
