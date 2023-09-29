@@ -107,6 +107,15 @@ export function CartProvider({ children }) {
 
   }
 
+ // Function to remove a product from the cart and local storage
+ function removeItemFromCart(productId) {
+    const updatedCart = cart.filter((product) => product.id !== productId);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    // Calculate updated costs
+    updateCartProductCost(updatedCart);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -118,7 +127,8 @@ export function CartProvider({ children }) {
         removeQuantity,
         updateCartProductCost,
         productsCost,
-        totalCost
+        totalCost,
+        removeItemFromCart
       }}
     >
       {children}

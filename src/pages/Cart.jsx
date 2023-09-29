@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 
 function Cart() {
 
-  const { cart, addQuantity, removeQuantity, productsCost, totalCost } = useCart();
+  const { cart, addQuantity, removeQuantity, productsCost, totalCost, removeItemFromCart } = useCart();
 
   return (
     <div className="flex xl:justify-between xs:justify-center  flex-wrap gap-8 my-10 p-5 min-h-[90vh] lg:mx-10 mx-2">
@@ -40,7 +40,7 @@ function Cart() {
                     <h3 className=" sm:text-xl text-lg font-semibold max-w-[350px]">{product.title}</h3>
                     <h4 className=" text-[#878787] sm:text-md text-sm font-semibold">Size: M</h4>
                     <h4  className="sm:text-lg text-md block mt-2 font-semibold">$ {Math.round(product.price)}</h4>
-                    <h4 className="max-w-max mt-2 hover:text-[#388e3c] cursor-pointer sm:text-lg text-md font-normal">REMOVE</h4>
+                    <h4 onClick={() => removeItemFromCart(product.id)} className="max-w-max mt-2 hover:text-[#388e3c] cursor-pointer sm:text-lg text-md font-normal">REMOVE</h4>
                   </div>
                 </div>))}
             </div>
