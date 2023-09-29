@@ -13,6 +13,8 @@ export function useCart() {
 export function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  let [productsCost, setProductsCost] = useState(0);
+  let [totalCost, setTotalCost] = useState(0);
 
   const PRODUCT_URL = "https://fakestoreapi.com/products";
 
@@ -33,6 +35,7 @@ export function CartProvider({ children }) {
     // Get the data from local storage
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(savedCart);
+    updateCartProductCost();
   }, []);
 
   // Add a product to the cart and store in local storage
@@ -61,6 +64,7 @@ export function CartProvider({ children }) {
 
       // Save the entire updated cart to local storage
       localStorage.setItem("cart", JSON.stringify(updatedCart));
+      updateCartProductCost()
     }
   }
 
@@ -71,6 +75,7 @@ export function CartProvider({ children }) {
     const updatedCart = [...cart];
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    updateCartProductCost();
   }
 
   // Remove quantity
@@ -81,8 +86,25 @@ export function CartProvider({ children }) {
       const updatedCart = [...cart];
       setCart(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
+      updateCartProductCost();
     }
     
+  }
+
+  function updateCartProductCost() {
+    // Get existing cart items from LocalStorage
+    let productsCost = 0;
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let deliveryCharges = 40; // Assuming delivery charges is fixed for now
+
+    savedCart.forEach((product) => {
+      productsCost += product.price * product.quantity;
+    });
+
+    setProductsCost(Math.round(productsCost));
+    setTotalCost(Math.round(productsCost + deliveryCharges));
+
   }
 
   return (
@@ -93,7 +115,10 @@ export function CartProvider({ children }) {
         cart,
         setCart,
         addQuantity,
-        removeQuantity
+        removeQuantity,
+        updateCartProductCost,
+        productsCost,
+        totalCost
       }}
     >
       {children}

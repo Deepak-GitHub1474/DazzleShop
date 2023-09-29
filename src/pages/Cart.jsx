@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 
 function Cart() {
 
-  const { cart, addQuantity, removeQuantity} = useCart();
+  const { cart, addQuantity, removeQuantity, productsCost, totalCost } = useCart();
 
   return (
     <div className="flex xl:justify-between xs:justify-center  flex-wrap gap-8 my-10 p-5 min-h-[90vh] lg:mx-10 mx-2">
@@ -70,7 +70,7 @@ function Cart() {
           <div className="flex flex-col justify-between gap-5 text-[#212121]">
             <div className="flex items-center justify-between">
               <h4>Price (<span id="cart-count-placeholder">{cart.length}</span>) item</h4>
-              <h4 >₹0</h4>
+              <h4 >₹{productsCost}</h4>
             </div>
             <div className="flex items-center justify-between">
               <h4>Discount</h4>
@@ -84,7 +84,7 @@ function Cart() {
           <hr className=" mt-4"/>
           <div className="flex items-center justify-between mt-2 text-[#000]">
             <h2 className="text-lg font-bold">Total Amount</h2>
-            <h2 className="text-lg font-bold">₹0</h2>
+            <h2 className="text-lg font-bold">₹{totalCost}</h2>
           </div>
           </div>
         
