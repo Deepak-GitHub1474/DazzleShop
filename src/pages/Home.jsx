@@ -13,7 +13,7 @@ import { useCart } from '../context/CartContext';
 
 function Home() {
     
-    const { products, addToCart } = useCart();
+  const { products, addToCart } = useCart();
 
   return (
     <HomeLayout>
