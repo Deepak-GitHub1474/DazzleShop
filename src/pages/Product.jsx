@@ -5,7 +5,7 @@ import { BsFillHeartFill } from 'react-icons/bs';
 import { useParams } from "react-router-dom";
 
 import ratingStar from "../assets/Images/star.svg"
-import HomeLayout from "../layouts/PageLayout";
+import PageLayout from "../layouts/PageLayout";
 
 function Product() {
 
@@ -33,7 +33,7 @@ function Product() {
   }
 
   return (
-    <HomeLayout>
+    <PageLayout>
         <div className="flex items-center justify-around flex-wrap gap-8 my-10 mx-8 min-h-[65vh]">
             <div className="border-[0.5px] border-[#e4e3e3] rounded-lg  p-2 bg-[#ffffff]">
             {wishList ? 
@@ -72,7 +72,7 @@ function Product() {
                 </div>
             </div>
         </div>
-    </HomeLayout>
+    </PageLayout>
   );
 }
 export default Product;

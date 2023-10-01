@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
 import emptyCartCover from "../assets/Images/empty-cart.webp"
 import shieldSafe from "../assets/Images/shield_safe.svg"
 import { useCart } from '../context/CartContext';
-
+import PageLayout from "../layouts/PageLayout"
 function Cart() {
 
   const { cart, addQuantity, removeQuantity, productsCost, totalCost, removeItemFromCart } = useCart();
 
   return (
-    <div className="flex xl:justify-between xs:justify-center  flex-wrap gap-8 my-10 p-5 min-h-[90vh] lg:mx-10 mx-2">
+    <PageLayout>
+
+      <div className="flex xl:justify-between xs:justify-center  flex-wrap gap-8 my-10 p-5 min-h-[90vh] lg:mx-10 mx-2">
       
       {/* Rendering products */}
 
@@ -19,7 +20,7 @@ function Cart() {
             
             <div className="flex flex-col gap-4">
               {cart.map(product => (
-              <div className="flex gap-10 mt-4" key={product.id}>
+              <div className="flex items-center gap-10 mt-4" key={product.id}>
                   <div className="cart-qunatity flex flex-col items-center">
                     <div>
                       <img src={product.image} className="w-20"/>
@@ -40,7 +41,7 @@ function Cart() {
                     <h3 className=" sm:text-xl text-lg font-semibold max-w-[350px]">{product.title}</h3>
                     <h4 className=" text-[#878787] sm:text-md text-sm font-semibold">Size: M</h4>
                     <h4  className="sm:text-lg text-md block mt-2 font-semibold">$ {Math.round(product.price)}</h4>
-                    <h4 onClick={() => removeItemFromCart(product.id)} className="max-w-max mt-2 hover:text-[#388e3c] cursor-pointer sm:text-lg text-md font-normal">REMOVE</h4>
+                    <h4 onClick={() => removeItemFromCart(product.id)} className="max-w-max mt-2 hover:text-[#388e3c] cursor-pointer text-sm font-medium ">REMOVE</h4>
                   </div>
                 </div>))}
             </div>
@@ -52,8 +53,8 @@ function Cart() {
             </div>
 
           </div> :
-          <div className=" flex items-center justify-center flex-col gap-4 ml-60">
-            <img src={emptyCartCover} alt="" className="h-64"/>
+          <div className=" flex items-center justify-center flex-col gap-4 xl:ml-48">
+            <img src={emptyCartCover} className="sm:h-64 h-52"/>
             <p>Your cart is empty!</p>
             <span>Explore our wide selection and find something you like</span>
           </div>}
@@ -63,7 +64,7 @@ function Cart() {
       
       {/* Total cost of product */}
 
-      <section className="flex flex-col gap-8">
+      {cart.length > 0 && <section className="flex flex-col gap-8">
         <div className="w-[450px] bg-white rounded-md p-5 shadow xl:fixed xl:right-16 relative">
           <h3 className="text-[#5e5e5e] text-md font-bold mb-4">PRICE DETAILS</h3>
           <hr className=" mb-4"/>
@@ -88,13 +89,15 @@ function Cart() {
           </div>
           </div>
         
-        <div className="xl:fixed xl:right-36 xl:top-[22rem] relative max-w-[365px] flex items-center justify-center gap-2">
+        <div className="xl:fixed xl:right-36 xl:top-[28rem] relative max-w-[365px] flex items-center justify-center gap-2">
             <img src={shieldSafe} alt="shieldSafe-Icon" />
             <span>Safe and Secure Payments. Easy return. 100% Authenticating Project</span>
         </div>
-      </section>
+      </section>}
 
     </div>
+
+    </PageLayout>
   );
 }
 

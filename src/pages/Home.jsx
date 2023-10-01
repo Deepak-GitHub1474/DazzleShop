@@ -7,7 +7,7 @@ import carouselImg4 from "../assets/Images/carouselImg4.jpg";
 import homeLeaf from "../assets/Images/home-leaf.png";
 import homePageMainImage from "../assets/Images/home-main.gif";
 
-import HomeLayout from "../layouts/PageLayout";
+import PageLayout from "../layouts/PageLayout";
 
 import { useCart } from '../context/CartContext';
 
@@ -16,7 +16,7 @@ function Home() {
   const { products, addToCart } = useCart();
 
   return (
-    <HomeLayout>
+    <PageLayout>
         <div className="flex flex-col w-full bg-[#ffffff] mt-6">
             <div className="carousel w-full lg:w-1/2 mx-auto">
                 <div id="slide1" className="carousel-item relative w-full">
@@ -98,7 +98,7 @@ function Home() {
         
             ))}
         </div>
-    </HomeLayout>
+    </PageLayout>
   );
 }
 

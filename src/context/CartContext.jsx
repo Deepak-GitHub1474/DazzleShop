@@ -15,6 +15,7 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   let [productsCost, setProductsCost] = useState(0);
   let [totalCost, setTotalCost] = useState(0);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const PRODUCT_URL = "https://fakestoreapi.com/products";
 
@@ -116,6 +117,21 @@ export function CartProvider({ children }) {
     updateCartProductCost(updatedCart);
   }
 
+  // Filter the products by it's category
+ function toggleCategory(category) {
+  
+    if (selectedCategories.includes(category)) {
+      
+      setSelectedCategories((prevCategories) =>
+        prevCategories.filter((prevCategory) => prevCategory !== category)
+      );
+    } else {
+      setSelectedCategories((prevCategories) => [...prevCategories, category]);
+    }
+    selectedCategories.shift()
+  }
+
+  console.log(selectedCategories);
   return (
     <CartContext.Provider
       value={{
@@ -128,7 +144,9 @@ export function CartProvider({ children }) {
         updateCartProductCost,
         productsCost,
         totalCost,
-        removeItemFromCart
+        removeItemFromCart,
+        selectedCategories,
+        toggleCategory,
       }}
     >
       {children}

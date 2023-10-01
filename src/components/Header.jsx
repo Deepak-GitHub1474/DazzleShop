@@ -5,16 +5,18 @@ import userProfile from "../assets/Images/user-profile.png";
 
 function Header() {
 
-  const { cart, addToCart } = useCart();
+  const { cart } = useCart();
 
   return (
     <header className="lg:h-[90px] h-[140px] p-4 bg-[#ffffff]" style={{ boxShadow: "0 0 2px #808080" }}>
 
       <div className="flex items-center justify-between">
 
-        <div className="text-2xl font-bold pl-20">
-          <h1>Dazzle<span className="text-[#8bc34a] font-bold">Shop</span></h1>
-        </div>
+       <Link to="/">
+          <div className="text-2xl font-bold pl-20 sm:pl-56 xs:pl-24 cursor-pointer ">
+            <h1>Dazzle<span className="text-[#8bc34a] font-bold">Shop</span></h1>
+          </div>
+       </Link>
 
         <div className="flex items-center justify-center lg:relative lg:top-0 absolute top-20 left-0 right-0 mx-auto">
           <div className="flex text-2xl">
@@ -30,7 +32,7 @@ function Header() {
         
         <section className="flex items-center justify-between gap-5">
           
-          <Link to="cart">
+          <Link to="/cart">
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
