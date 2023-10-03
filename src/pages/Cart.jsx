@@ -14,14 +14,14 @@ function Cart() {
       {/* Rendering products */}
 
       <section className="flex flex-col gap-3">
-        <div className="xl:w-[53vw] sm:w-[100%] xs:w-[450px]  bg-[#ffffff] rounded-md shadow p-4 flex justify-between relative pb-10">
+        <div className="xl:w-[53vw] xs:w-[450px]  bg-[#ffffff] rounded-md shadow p-4 flex justify-between relative pb-10">
           
           {cart.length > 0 ? <div className="flex flex-col gap-16 text-[#212121]"> 
             
             <div className="flex flex-col gap-4">
               {cart.map(product => (
-              <div className="flex items-center gap-10 mt-4" key={product.id}>
-                  <div className="cart-qunatity flex flex-col items-center">
+                <div className="flex items-center xs:flex-nowrap flex-wrap xs:gap-10 gap-4 mt-4" key={product.id}>
+                  <div className="xs:flex xs:flex-col xs:items-center flex items-center justify-between gap-8">
                     <div>
                       <img src={product.image} className="w-20"/>
                     </div>
@@ -65,7 +65,7 @@ function Cart() {
       {/* Total cost of product */}
 
       {cart.length > 0 && <section className="flex flex-col gap-8">
-        <div className="w-[450px] bg-white rounded-md p-5 shadow xl:fixed xl:right-16 relative">
+        <div className="xs:w-[450px] bg-white rounded-md p-5 shadow xl:fixed xl:right-16 relative">
           <h3 className="text-[#5e5e5e] text-md font-bold mb-4">PRICE DETAILS</h3>
           <hr className=" mb-4"/>
           <div className="flex flex-col justify-between gap-5 text-[#212121]">

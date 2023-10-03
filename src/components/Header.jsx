@@ -14,7 +14,7 @@ function Header() {
   };
 
   return (
-    <header className="lg:h-[90px] h-[140px] p-4 bg-[#ffffff]" style={{ boxShadow: "0 0 2px #808080" }}>
+    <header className="lg:h-[90px] h-[140px] p-4 bg-[#ffffff] w-full" style={{ boxShadow: "0 0 2px #808080" }}>
 
       <div className="flex items-center justify-between">
 
@@ -53,7 +53,7 @@ function Header() {
             </div>
           </Link>
 
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end xs:block hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar hover:border-2 hover:border-[#8bc34a]">
               <div className="w-10 rounded-full">
                 <img src={userProfile} />
