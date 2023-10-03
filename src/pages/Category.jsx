@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/ProductContext';
 import PageLayout from "../layouts/PageLayout";
 
 function Category() {

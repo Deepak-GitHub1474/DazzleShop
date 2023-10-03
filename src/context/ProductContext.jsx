@@ -2,15 +2,15 @@ import axios from "axios";
 import React, { createContext, useContext, useEffect,useState } from "react";
 
 // Create a context
-const CartContext = createContext();
+const ProductContext = createContext();
 
 // Custom hook to use the cart context
 export function useCart() {
-  return useContext(CartContext);
+  return useContext(ProductContext);
 }
 
 // Cart context provider component
-export function CartProvider({ children }) {
+export function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [cart, setCart] = useState([]);
@@ -161,7 +161,7 @@ export function CartProvider({ children }) {
   }
 
   return (
-    <CartContext.Provider
+    <ProductContext.Provider
       value={{
         products: searchInput ? filteredProducts : products,
         category,
@@ -182,6 +182,6 @@ export function CartProvider({ children }) {
       }}
     >
       {children}
-    </CartContext.Provider>
+    </ProductContext.Provider>
   );
 }

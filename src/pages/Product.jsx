@@ -4,7 +4,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsFillHeartFill } from 'react-icons/bs';
 import { useParams } from "react-router-dom";
 
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/ProductContext';
 
 import ratingStar from "../assets/Images/star.svg"
 import PageLayout from "../layouts/PageLayout";

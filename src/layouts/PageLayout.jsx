@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/ProductContext';
 
 function PageLayout({ children }) {
 

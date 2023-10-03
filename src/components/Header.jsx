@@ -2,7 +2,7 @@ import { BsCart, BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import userProfile from "../assets/Images/user-profile.png";
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/ProductContext';
 
 function Header() {
 

@@ -1,6 +1,6 @@
 import emptyCartCover from "../assets/Images/empty-cart.webp"
 import shieldSafe from "../assets/Images/shield_safe.svg"
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/ProductContext';
 import PageLayout from "../layouts/PageLayout"
 function Cart() {
 

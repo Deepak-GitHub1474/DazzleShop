@@ -6,7 +6,7 @@ import carouselImg3 from "../assets/Images/carouselImg3.png";
 import carouselImg4 from "../assets/Images/carouselImg4.jpg";
 import homeLeaf from "../assets/Images/home-leaf.png";
 import homePageMainImage from "../assets/Images/home-main.gif";
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/ProductContext';
 import PageLayout from "../layouts/PageLayout";
 
 function Home() {
