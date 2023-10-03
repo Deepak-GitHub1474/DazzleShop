@@ -104,7 +104,7 @@ export function CartProvider({ children }) {
     let productsCost = 0;
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let deliveryCharges = 40; // Assuming delivery charges is fixed for now
+    let deliveryCharges = 10; // Assuming delivery charges is fixed for now
 
     savedCart.forEach((product) => {
       productsCost += product.price * product.quantity;

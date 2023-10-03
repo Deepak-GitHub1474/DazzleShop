@@ -71,7 +71,7 @@ function Cart() {
           <div className="flex flex-col justify-between gap-5 text-[#212121]">
             <div className="flex items-center justify-between">
               <h4>Price (<span id="cart-count-placeholder">{cart.length}</span>) item</h4>
-              <h4 >₹{productsCost}</h4>
+              <h4 >${productsCost}</h4>
             </div>
             <div className="flex items-center justify-between">
               <h4>Discount</h4>
@@ -79,13 +79,13 @@ function Cart() {
             </div>
             <div className="flex items-center justify-between">
               <h4 className="text-base ">Delivery Charges</h4>
-              <h4>₹40</h4>
+              <h4>$10</h4>
             </div>
           </div>
           <hr className=" mt-4"/>
           <div className="flex items-center justify-between mt-2 text-[#000]">
             <h2 className="text-lg font-bold">Total Amount</h2>
-            <h2 className="text-lg font-bold">₹{totalCost}</h2>
+            <h2 className="text-lg font-bold">${totalCost}</h2>
           </div>
           </div>
         
