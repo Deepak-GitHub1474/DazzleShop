@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect,useState } from "react";
 
 // Create a context
 const CartContext = createContext();
@@ -12,19 +12,25 @@ export function useCart() {
 // Cart context provider component
 export function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState([]);
   const [cart, setCart] = useState([]);
-  let [productsCost, setProductsCost] = useState(0);
-  let [totalCost, setTotalCost] = useState(0);
+  const [productsCost, setProductsCost] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
 
   const PRODUCT_URL = "https://fakestoreapi.com/products";
 
+  // Render all products when page load
   useEffect(() => {
     async function getProducts() {
       try {
         const response = await axios.get(PRODUCT_URL);
         const products = response.data;
         setProducts(products);
+        setCategory(products);
       } catch (error) {
         console.log("Error:", error);
       }
@@ -32,6 +38,7 @@ export function CartProvider({ children }) {
     getProducts();
   }, []);
 
+  // Update Cart
   useEffect(() => {
     // Get the data from local storage
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -65,7 +72,7 @@ export function CartProvider({ children }) {
 
       // Save the entire updated cart to local storage
       localStorage.setItem("cart", JSON.stringify(updatedCart));
-      updateCartProductCost()
+      updateCartProductCost();
     }
   }
 
@@ -89,9 +96,9 @@ export function CartProvider({ children }) {
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       updateCartProductCost();
     }
-    
   }
 
+  // Calculate cart's cost
   function updateCartProductCost() {
     // Get existing cart items from LocalStorage
     let productsCost = 0;
@@ -105,11 +112,10 @@ export function CartProvider({ children }) {
 
     setProductsCost(Math.round(productsCost));
     setTotalCost(Math.round(productsCost + deliveryCharges));
-
   }
 
- // Function to remove a product from the cart and local storage
- function removeItemFromCart(productId) {
+  // Function to remove a product from the cart and local storage
+  function removeItemFromCart(productId) {
     const updatedCart = cart.filter((product) => product.id !== productId);
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -118,24 +124,47 @@ export function CartProvider({ children }) {
   }
 
   // Filter the products by it's category
- function toggleCategory(category) {
-  
+  function toggleCategory(category) {
     if (selectedCategories.includes(category)) {
-      
       setSelectedCategories((prevCategories) =>
         prevCategories.filter((prevCategory) => prevCategory !== category)
       );
     } else {
       setSelectedCategories((prevCategories) => [...prevCategories, category]);
     }
-    selectedCategories.shift()
+    selectedCategories.shift();
   }
 
-  console.log(selectedCategories);
+  // Search Items
+  useEffect(() => {
+    // Implement debouncing using setTimeout
+    const timeoutId = setTimeout(() => {
+      setDebouncedSearch(searchInput);
+    }, 100); // Adjust the debounce delay as needed (e.g., 500ms)
+
+    return () => {
+      clearTimeout(timeoutId); // Clear the timeout on unmount or input change
+    };
+  }, [searchInput]);
+
+  // Filter products based on debounced search value
+  function searchProduct() {
+    if (searchInput.length > 0) {
+      const filteredProducts = products.filter((product) => {
+        return product.category
+          .toLowerCase()
+          .includes(debouncedSearch.toLowerCase());
+      });
+      setFilteredProducts(filteredProducts); // Update filteredProducts state
+      console.log(filteredProducts);
+    }
+  }
+
   return (
     <CartContext.Provider
       value={{
-        products,
+        products: searchInput ? filteredProducts : products,
+        category,
         addToCart,
         cart,
         setCart,
@@ -147,6 +176,9 @@ export function CartProvider({ children }) {
         removeItemFromCart,
         selectedCategories,
         toggleCategory,
+        searchInput,
+        setSearchInput,
+        searchProduct,
       }}
     >
       {children}

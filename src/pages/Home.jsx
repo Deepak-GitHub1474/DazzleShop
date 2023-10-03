@@ -6,10 +6,8 @@ import carouselImg3 from "../assets/Images/carouselImg3.png";
 import carouselImg4 from "../assets/Images/carouselImg4.jpg";
 import homeLeaf from "../assets/Images/home-leaf.png";
 import homePageMainImage from "../assets/Images/home-main.gif";
-
-import PageLayout from "../layouts/PageLayout";
-
 import { useCart } from '../context/CartContext';
+import PageLayout from "../layouts/PageLayout";
 
 function Home() {
     
@@ -86,7 +84,7 @@ function Home() {
                     </div>
                 </Link>
                 <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis pt-5 text-[#000] font-semibold">{product.title}</h3>
-                <p className="text-[#008000] font-semibold">Price ${product.price}</p>
+                <p className="text-[#008000] font-semibold">Price ${Math.round(product.price)}</p>
                 <div className="flex items-center justify-around">
                     <button onClick={() => addToCart(product.id - 1)} className="mt-6 bg-[#000] text-[#ffffff] font-semibold border-none py-1 sm:w-24 w-[85px] sm:text-base text-sm cursor-pointer rounded-lg">Add to Cart</button>
 

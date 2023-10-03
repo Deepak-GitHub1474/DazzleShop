@@ -1,15 +1,14 @@
-import PageLayout from "../layouts/PageLayout";
-
 import { Link } from "react-router-dom";
 
 import { useCart } from '../context/CartContext';
+import PageLayout from "../layouts/PageLayout";
 
 function Category() {
 
-    const { products, addToCart, selectedCategories } = useCart();
+    const { category, addToCart, selectedCategories } = useCart();
 
     // Filter products based on selected categories
-    const filteredProducts = products.filter((product) =>
+    const filteredProducts = category.filter((product) =>
         selectedCategories.length === 0
         ? true
         : selectedCategories.includes(product.category.toLowerCase())

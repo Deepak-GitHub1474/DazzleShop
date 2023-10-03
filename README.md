@@ -99,3 +99,13 @@
                 plugins: [require("daisyui")],
             }
     ```
+
+## Features
+  - Main home page where all the products will be render.
+  - Single product checkout page to see full details of product.
+  - Add products to the cart.
+  - Modify the quantity of products in the cart.
+  - Remove products from the cart.
+  - See total cost of products.
+  - Search products.
+  - Filter Product

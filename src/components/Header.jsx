@@ -1,11 +1,17 @@
 import { BsCart, BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useCart } from '../context/CartContext';
+
 import userProfile from "../assets/Images/user-profile.png";
+import { useCart } from '../context/CartContext';
 
 function Header() {
 
-  const { cart } = useCart();
+  const { cart, searchInput, setSearchInput, searchProduct} = useCart();
+
+  // Handle search input change
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
 
   return (
     <header className="lg:h-[90px] h-[140px] p-4 bg-[#ffffff]" style={{ boxShadow: "0 0 2px #808080" }}>
@@ -19,14 +25,18 @@ function Header() {
        </Link>
 
         <div className="flex items-center justify-center lg:relative lg:top-0 absolute top-20 left-0 right-0 mx-auto">
-          <div className="flex text-2xl">
-            <BsSearch className="relative left-10 cursor-pointer" />
-          </div>
+          <Link to="/">
+            <div className="flex text-2xl">
+              <BsSearch onClick={searchProduct} className="relative left-10 cursor-pointer" />
+            </div>
+          </Link>
           <input
             className="lg:w-[40vw] w-[80vw] border-2 border-[#808080] rounded p-2 pl-14 outline-none"
             type="text"
             placeholder="Search product ..."
             name="search"
+            value={searchInput}
+            onChange={handleSearchInputChange}
           />
         </div>
         
