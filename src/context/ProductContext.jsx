@@ -156,7 +156,6 @@ export function ProductProvider({ children }) {
           .includes(debouncedSearch.toLowerCase());
       });
       setFilteredProducts(filteredProducts); // Update filteredProducts state
-      console.log(filteredProducts);
     }
   }
 
