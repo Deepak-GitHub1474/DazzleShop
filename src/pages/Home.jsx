@@ -33,9 +33,9 @@ function Home() {
             </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-8 py-6 my-6 mx-4">
+        <div className="flex flex-wrap items-center justify-center sm:gap-8 gap-4 py-6 my-6 sm:mx-4">
           {products.map((product) => (
-            <div className="sm:w-[230px] sm:h-[330px] w-[150px] h-[235px] sm:m-2 p-3 text-center rounded-lg bg-[#ffffff] shadow-2xl hover:scale-[1.02] hover:border-2 hover:border-[#8bc34a]" key={product.id}>
+            <div className="sm:w-[230px] sm:h-[330px] w-[125px] h-[235px] sm:m-2 p-3 text-center rounded-lg bg-[#ffffff] shadow-2xl hover:scale-[1.02] hover:border-2 hover:border-[#8bc34a]" key={product.id}>
                 <Link to={`/product/${product.id}`}>
                     <div className="flex items-center justify-center sm:h-[180px] h-[100px]">
                         <img src={product.image} alt={product.title} className="sm:w-[180px] sm:h-[180px] w-[90px] h-[90px] object-contain cursor-pointer" />
