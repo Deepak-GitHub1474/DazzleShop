@@ -53,10 +53,10 @@ function Cart() {
             </div>
 
           </div> :
-          <div className=" flex items-center justify-center flex-col gap-4 xl:ml-48">
+          <div className="flex items-center justify-center flex-col gap-4 xl:ml-48">
             <img src={emptyCartCover} className="sm:h-64 h-52"/>
-            <p>Your cart is empty!</p>
-            <span>Explore our wide selection and find something you like</span>
+            <p className="text-center">Your cart is empty!</p>
+            <span className="text-center">Explore our wide selection and find something you like</span>
           </div>}
           
         </div>

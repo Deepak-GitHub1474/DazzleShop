@@ -1,4 +1,4 @@
-import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { BsGithub, BsInstagram, BsLinkedin, BsTwitter, BsYoutube } from "react-icons/bs";
 
 function Footer() {
 
@@ -13,17 +13,20 @@ function Footer() {
             </section>
 
             <section className="flex items-center justify-center gap-5 text-2xl text-white">
-                <a href="#" className="hover:scale-125 transition-all ease-in-out duration-300">
+                <a href="https://github.com/Deepak-GitHub1474" target="_blank" className="hover:scale-125 transition-all ease-in-out duration-300">
                     <BsGithub />
                 </a>
-                <a href="#" className="hover:scale-125 transition-all ease-in-out duration-300">
+                <a href="https://www.instagram.com/deepak__chaudhary/" target="_blank" className="hover:scale-125 transition-all ease-in-out duration-300">
                     <BsInstagram />
                 </a>
-                <a href="#" className="hover:scale-125 transition-all ease-in-out duration-300">
+                <a href="https://www.linkedin.com/in/deepak-chaudhary1474/" target="_blank" className="hover:scale-125 transition-all ease-in-out duration-300">
                     <BsLinkedin />
                 </a>
-                <a href="#" className="hover:scale-125 transition-all ease-in-out duration-300">
+                <a href="https://twitter.com/Deepak_Divs" target="_blank" className="hover:scale-125 transition-all ease-in-out duration-300">
                     <BsTwitter />
+                </a>
+                <a href="https://youtu.be/v0tFeMgDItE" target="_blank" className="hover:scale-125 transition-all ease-in-out duration-300">
+                    <BsYoutube />
                 </a>
             </section>
         </footer>
