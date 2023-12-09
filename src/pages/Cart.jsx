@@ -1,10 +1,18 @@
-import emptyCartCover from "../assets/Images/empty-cart.webp"
-import shieldSafe from "../assets/Images/shield_safe.svg"
+import emptyCartCover from "../assets/Images/empty-cart.webp";
+import shieldSafe from "../assets/Images/shield_safe.svg";
 import { useCart } from '../context/ProductContext';
-import PageLayout from "../layouts/PageLayout"
+import PageLayout from "../layouts/PageLayout";
+import { useNavigate } from "react-router-dom";
 function Cart() {
 
   const { cart, addQuantity, removeQuantity, productsCost, totalCost, removeItemFromCart } = useCart();
+  const navigate = useNavigate();
+
+  // Set purchage source
+  function buyItem(){
+    localStorage.setItem("purchaseSource", "cart");
+    navigate("/payment");
+  }
 
   return (
     <PageLayout>
@@ -46,8 +54,11 @@ function Cart() {
                 </div>))}
             </div>
 
-            <div >
-              <button className="bg-[#388e3c] text-white hover:bg-[#fb641b] min-w-1/6 p-[10px] absolute bottom-6 right-6 font-semibold rounded cursor-pointer">
+            <div onClick={() => navigate("/payment")}>
+              <button 
+                className="bg-[#388e3c] text-white hover:bg-[#fb641b] min-w-1/6 p-[10px] absolute bottom-6 right-6 font-semibold rounded cursor-pointer"
+                onClick={buyItem}
+              >
                 PLACE ORDER
               </button>
             </div>
